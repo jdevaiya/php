@@ -1,0 +1,9 @@
+<html>
+<body>
+<p>
+    <?php
+        include("welcome.php")
+    ?>
+</p>
+</body>
+</html>

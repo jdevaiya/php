@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<style>
+table{
+	display:none; 
+}
+</style>
+</head>
+<body>
+<input type="number" id="user">
+<button>Display Data From Server</button>
+	<table border="1" width="80%" align="center">
+		<tr>
+		<th>Id</th>
+		<th>Fullname</th>
+		<th>Username</th>
+		<th>Password</th>
+		<th>Date</th>
+		</tr>
+	</table>
+	<p></p>
+<script>
+$(document).ready(function (){
+	$("button").click(function(){
+		var id = $("#user").val();
+		if(id != "")
+		{
+			$.ajax({
+				type : "POST",
+				url : "display.php",
+				data : {
+					id : id
+				},
+				success : function(response){
+					
+					$("table").css({
+						display : "block"
+					});
+					$("table").append(response);
+				}
+				
+			});
+		}
+	});
+});
+</script>
+</body>
+</html>
